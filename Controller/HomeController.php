@@ -2,14 +2,18 @@
 namespace Controller;
 
 use App\BaseController;
-use http\Env\Response;
+use Models\BookCollection;
 
 class HomeController extends BaseController
 {
     public function home()
     {
-//        echo 'HomeController';
-        return $this->render('home.php', ['name' => 'HomeController', 'say' => 'hello']);
+        $shining = new BookCollection();
+        $shining = $shining->query("Select * from book where title = 'Shining'");
+        print_r($shining);
+        $controllerName = $this->getClassName();
+        $this->initTwig();
+        return $this->twig->render('home/index.html.twig', ['name' => $controllerName, 'path' => __DIR__ . '/' . $controllerName]);
     }
 }
 

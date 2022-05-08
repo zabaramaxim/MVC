@@ -2,22 +2,15 @@
 
 namespace App;
 
-use App\Application;
-use App\TestController;
-use App\Request;
-use App\Router;
-
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require_once dirname(__DIR__). '/vendor/autoload.php';
 
 $config = require(__DIR__ . '/../config/routes.php');
-//print_r($config);
 
 $application = new Application($config);
-//print_r($application->config);
-$application->run();
+$application->start();
 
 
 

@@ -1,0 +1,41 @@
+{% extends "main.html.twig" %}
+
+
+{% block title %}<title>Books</title>{% endblock %}
+
+{% block content %}
+
+<p>{{collection.1.title}}</p>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Publication date</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    {% for id, book in books %}
+
+                    <tr>
+{#                        <th class="id" scope="row">{{book}}</th>#}
+                        <td>{{id}}</td>
+                        <td>{{book.title}}</td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.genre}}</td>
+                        <td>{{book.year}}</td>
+                    </tr>
+                    {% endfor%}
+                    </tbody>
+                </table>
+                <h5 id="my_message"></h5>
+            </div>
+        </div>
+    </div>
+{% endblock %}

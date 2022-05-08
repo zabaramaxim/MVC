@@ -27,9 +27,9 @@ class Router
 //                echo $route['path'], ' ', $route['controller'], ' ',  $route['action'], ' ', $this->request->path();
                 $route['path'] = $this->request->path();
                 $this->params = $route;
+                break;
             }
         }
-        //eror 404;
     }
 
     public function getControllerName()
